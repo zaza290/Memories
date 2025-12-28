@@ -1,0 +1,642 @@
+@import url('https://fonts.googleapis.com/css2?family=Parisienne&family=Poppins:ital,wght@0,300;0,400;0,600;1,300&display=swap');
+
+/* Define CSS variables for theme consistency and easy customization */
+:root {
+    --primary-pink: #ff69b4;
+    --secondary-pink: #ff1493;
+    --accent-gold: #ffd700;
+    --text-dark: #333;
+    --text-light: #fff;
+    --shadow-soft: 0 4px 15px rgba(255, 105, 180, 0.3);
+    --shadow-glow: 0 0 20px rgba(255, 105, 180, 0.5);
+    --transition-ease: all 0.3s ease;
+    --animation-duration: 0.5s;
+}
+
+/* Enhanced body with parallax-like background and overlay for better text readability */
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    background: url('https://png.pngtree.com/thumb_back/fh260/background/20251109/pngtree-sparkling-hearts-floating-in-a-starry-night-sky-image_20282838.webp') no-repeat center center fixed;
+    background-size: cover;
+    color: var(--text-dark);
+    margin: 0;
+    padding: 20px;
+    overflow-x: hidden;
+    position: relative;
+    min-height: 100vh;
+}
+
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(255, 105, 180, 0.2));
+    z-index: -2;
+    pointer-events: none;
+}
+
+h1, h2 {
+    font-family: 'Parisienne', cursive;
+    color: var(--primary-pink);
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+    margin-bottom: 20px;
+}
+
+/* Improved landing with gradient text and subtle entrance */
+.landing-container {
+    text-align: center;
+    padding: 60px 20px;
+    animation: fadeIn var(--animation-duration) ease-in-out;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 30px;
+    max-width: 800px;
+    margin: 0 auto;
+    box-shadow: var(--shadow-glow);
+}
+
+#countdown {
+    font-size: 20px;
+    color: var(--primary-pink);
+    margin-top: 25px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Heart container with enhanced glow and rotation on hover */
+.heart-container {
+    position: relative;
+    width: 220px;
+    height: 220px;
+    margin: 30px auto;
+    background-image: url('https://www.katebackdrop.com/cdn/shop/files/BH1046834Q.jpg?v=1739439129&width=1000');
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    box-shadow: var(--shadow-glow);
+    transition: var(--transition-ease);
+}
+
+.heart-container:hover {
+    transform: rotate(5deg) scale(1.05);
+}
+
+.heart {
+    position: absolute;
+    top: 60px;
+    left: 60px;
+    width: 100px;
+    height: 90px;
+    cursor: pointer;
+    animation: heartbeat 1.2s infinite ease-in-out;
+}
+
+@keyframes heartbeat {
+    0%, 40%, 80%, 100% { transform: scale(1); }
+    20%, 60% { transform: scale(1.3); }
+}
+
+.heart:before,
+.heart:after {
+    position: absolute;
+    content: "";
+    left: 50px;
+    top: 0;
+    width: 50px;
+    height: 80px;
+    background: var(--primary-pink);
+    border-radius: 50px 50px 0 0;
+    transform: rotate(-45deg);
+    transform-origin: 0 100%;
+    box-shadow: var(--shadow-soft);
+}
+
+.heart:after {
+    left: 0;
+    transform: rotate(45deg);
+    transform-origin: 100% 100%;
+}
+
+/* Profiles with neon glow and better spacing */
+.profiles {
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    display: flex;
+    justify-content: space-between;
+    width: 170px;
+}
+
+.profile {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--text-light);
+    box-shadow: var(--shadow-glow);
+    transition: var(--transition-ease);
+}
+
+.profile:hover {
+    transform: scale(1.15) rotate(10deg);
+    box-shadow: 0 0 25px var(--primary-pink);
+}
+
+.profile img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Main container with blurred background and responsive design */
+.container {
+    max-width: 900px;
+    margin: 40px auto;
+    background: url('https://marketplace.canva.com/EAGAsOsl-VA/2/0/1600w/canva-beige-and-brown-simple-collage-love-couple-scrapbook-554Y4HGz0HQ.jpg') no-repeat center center;
+    background-size: cover;
+    padding: 30px;
+    border-radius: 30px;
+    box-shadow: var(--shadow-glow);
+    position: relative;
+    backdrop-filter: blur(5px);
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+        margin: 20px;
+    }
+}
+
+#musicToggle {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 8px 15px;
+    background: linear-gradient(to bottom, var(--primary-pink), var(--secondary-pink));
+    color: var(--text-light);
+    border: none;
+    cursor: pointer;
+    border-radius: 25px;
+    font-weight: 600;
+    transition: var(--transition-ease);
+}
+
+#musicToggle:hover {
+    transform: scale(1.1);
+    box-shadow: var(--shadow-glow);
+}
+
+/* Tabs with modern pill design and glow effects */
+.tabs {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 25px;
+    flex-wrap: wrap;
+}
+
+.tab-button {
+    padding: 12px 25px;
+    margin: 5px;
+    background: linear-gradient(to bottom, #f8f8f8, #e0e0e0);
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: var(--transition-ease);
+}
+
+.tab-button:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-soft);
+}
+
+.tab-button.active {
+    background: linear-gradient(to bottom, var(--primary-pink), var(--secondary-pink));
+    color: var(--text-light);
+    box-shadow: var(--shadow-glow);
+}
+
+.tab-content {
+    display: none;
+    perspective: 1200px;
+}
+
+.tab-content.active {
+    display: block;
+    animation: flipIn var(--animation-duration) ease;
+}
+
+@keyframes flipIn {
+    from { transform: rotateY(90deg); opacity: 0; }
+    to { transform: rotateY(0); opacity: 1; }
+}
+
+/* Gift box with 3D effect and confetti-like pseudo elements */
+.gift-box {
+    width: 120px;
+    height: 120px;
+    background: linear-gradient(to bottom, var(--accent-gold), #e6c200);
+    position: relative;
+    margin: 25px auto;
+    cursor: pointer;
+    transition: var(--transition-ease);
+    box-shadow: var(--shadow-soft);
+    border-radius: 10px;
+}
+
+.gift-box:hover {
+    transform: rotate(10deg) scale(1.1);
+    box-shadow: var(--shadow-glow);
+}
+
+.gift-box::before {
+    content: '';
+    position: absolute;
+    top: -35px;
+    left: 35px;
+    width: 45px;
+    height: 25px;
+    background: linear-gradient(to right, #ff0000, #ff4500);
+    border-radius: 50% 50% 0 0;
+    transform: rotate(-25deg);
+    box-shadow: var(--shadow-soft);
+}
+
+.gift-box::after {
+    content: '';
+    position: absolute;
+    top: -35px;
+    right: 35px;
+    width: 45px;
+    height: 25px;
+    background: linear-gradient(to right, #ff0000, #ff4500);
+    border-radius: 50% 50% 0 0;
+    transform: rotate(25deg);
+    box-shadow: var(--shadow-soft);
+}
+
+.gift-lid {
+    position: absolute;
+    top: -25px;
+    left: -15px;
+    width: 150px;
+    height: 25px;
+    background: linear-gradient(to bottom, var(--accent-gold), #e6c200);
+    box-shadow: var(--shadow-soft);
+    border-radius: 10px;
+}
+
+.surprise {
+    text-align: center;
+    font-size: 20px;
+    color: var(--primary-pink);
+    margin: 25px;
+    animation: bounceIn 1.2s ease;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes bounceIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    50% { transform: scale(1.3); opacity: 1; }
+    100% { transform: scale(1); }
+}
+
+/* Form with modern inputs and focus effects */
+.custom-form {
+    text-align: center;
+    margin: 25px 0;
+}
+
+.custom-form input,
+.custom-form textarea {
+    width: 85%;
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 2px solid var(--primary-pink);
+    border-radius: 15px;
+    transition: var(--transition-ease);
+    background: rgba(255, 255, 255, 0.8);
+}
+
+.custom-form input:focus,
+.custom-form textarea:focus {
+    border-color: var(--secondary-pink);
+    box-shadow: var(--shadow-glow);
+    outline: none;
+}
+
+.custom-form button {
+    padding: 12px 25px;
+    background: linear-gradient(to bottom, var(--primary-pink), var(--secondary-pink));
+    color: var(--text-light);
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: var(--transition-ease);
+}
+
+.custom-form button:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-glow);
+}
+
+#resetButton {
+    display: block;
+    margin: 25px auto;
+    padding: 12px 25px;
+    background: linear-gradient(to bottom, #d0d0d0, #b0b0b0);
+    border: none;
+    cursor: pointer;
+    border-radius: 30px;
+    font-weight: 600;
+    transition: var(--transition-ease);
+}
+
+#resetButton:hover {
+    transform: scale(1.05);
+    background: linear-gradient(to bottom, #c0c0c0, #a0a0a0);
+}
+
+/* Lists with animated hearts */
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+li {
+    background: rgba(255, 255, 255, 0.9);
+    padding: 12px 20px;
+    margin: 10px 0;
+    border-radius: 15px;
+    position: relative;
+    transition: var(--transition-ease);
+}
+
+li:hover {
+    transform: translateX(10px);
+    box-shadow: var(--shadow-soft);
+}
+
+li::before {
+    content: '❤️';
+    position: absolute;
+    left: -25px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+    0%, 100% { transform: translateY(-50%) scale(1); }
+    50% { transform: translateY(-50%) scale(1.2); }
+}
+
+/* Gallery with grid layout for better responsiveness */
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 15px;
+    justify-items: center;
+}
+
+.gallery img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 15px;
+    transition: var(--transition-ease);
+    box-shadow: var(--shadow-soft);
+}
+
+.gallery img:hover {
+    transform: scale(1.1) rotate(3deg);
+    box-shadow: var(--shadow-glow);
+}
+
+video {
+    max-width: 100%;
+    display: block;
+    margin: 15px auto;
+    border-radius: 15px;
+    box-shadow: var(--shadow-soft);
+}
+
+/* Enhanced floating hearts with varied sizes and speeds */
+#floating-hearts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.floating-heart {
+    position: absolute;
+    font-size: calc(20px + 10 * random());
+    color: var(--primary-pink);
+    opacity: 0.7;
+    animation: floatUp calc(4s + 2s * random()) linear infinite;
+    left: calc(100vw * random());
+}
+
+@keyframes floatUp {
+    0% { transform: translateY(100vh) rotate(0deg); opacity: 0.7; }
+    100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; }
+}
+
+/* Flip cards with smoother transition and gradient backgrounds */
+.flip-card {
+    background-color: transparent;
+    width: 220px;
+    height: 220px;
+    perspective: 1200px;
+    display: inline-block;
+    margin: 15px;
+}
+
+.flip-card-inner {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+    transform-style: preserve-3d;
+    box-shadow: var(--shadow-soft);
+    border-radius: 15px;
+}
+
+.flip-card:hover .flip-card-inner {
+    transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    backface-visibility: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.flip-card-front {
+    background: linear-gradient(to bottom, var(--primary-pink), var(--secondary-pink));
+    color: var(--text-light);
+}
+
+.flip-card-back {
+    background: linear-gradient(to bottom, #f8f8f8, #e0e0e0);
+    color: var(--text-dark);
+    transform: rotateY(180deg);
+}
+
+/* Timeline with smoother curves and hover highlights */
+.timeline {
+    position: relative;
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.timeline::after {
+    content: '';
+    position: absolute;
+    width: 8px;
+    background: linear-gradient(to bottom, var(--primary-pink), var(--secondary-pink));
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    margin-left: -4px;
+    border-radius: 4px;
+}
+
+.timeline li {
+    padding: 25px 45px;
+    position: relative;
+    background-color: inherit;
+    width: 50%;
+    box-sizing: border-box;
+}
+
+.timeline li:nth-child(odd) {
+    left: 0;
+    text-align: right;
+}
+
+.timeline li:nth-child(even) {
+    left: 50%;
+    text-align: left;
+}
+
+.timeline-content {
+    padding: 25px 35px;
+    background: rgba(255, 255, 255, 0.95);
+    position: relative;
+    border-radius: 15px;
+    box-shadow: var(--shadow-soft);
+    transition: var(--transition-ease);
+}
+
+.timeline-content:hover {
+    transform: scale(1.05);
+    box-shadow: var(--shadow-glow);
+}
+
+.timeline li::before {
+    content: '';
+    position: absolute;
+    top: 50px;
+    right: -20px;
+    width: 35px;
+    height: 35px;
+    background: var(--primary-pink);
+    border-radius: 50%;
+    z-index: 1;
+    box-shadow: var(--shadow-soft);
+}
+
+.timeline li:nth-child(even)::before {
+    left: -20px;
+    right: auto;
+}
+
+/* Envelope with realistic shadow and smoother flip */
+.envelope {
+    width: 320px;
+    height: 220px;
+    margin: 25px auto;
+    position: relative;
+    cursor: pointer;
+    perspective: 1200px;
+}
+
+.envelope-front {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, var(--primary-pink), var(--secondary-pink));
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.6s ease-in-out;
+    transform-origin: top;
+    box-shadow: var(--shadow-soft);
+    border-radius: 10px;
+}
+
+.envelope:hover .envelope-front {
+    transform: rotateX(-180deg);
+}
+
+.envelope-back {
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    box-shadow: var(--shadow-glow);
+    border-radius: 10px;
+}
+
+/* Add media queries for responsiveness */
+@media (max-width: 600px) {
+    .timeline li,
+    .timeline li:nth-child(even) {
+        width: 100%;
+        left: 0 !important;
+        text-align: left !important;
+        padding: 20px 20px;
+    }
+
+    .timeline li::before {
+        left: -20px !important;
+        right: auto !important;
+    }
+
+    .timeline::after {
+        left: 20px;
+        margin-left: 0;
+    }
+
+    .profiles {
+        width: 140px;
+    }
+
+    .profile {
+        width: 50px;
+        height: 50px;
+    }
+}

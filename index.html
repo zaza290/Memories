@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Memory Keeping System</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <audio id="bgMusic" src="https://www.bensound.com/bensound-music/bensound-love.mp3" loop></audio>
+    <div id="floating-hearts"></div>
+
+    <div id="landing" class="landing-container">
+        <h1>Welcome to Our Love Memory System, [Your Name] & [Partner's Name] 💕</h1>
+        <div class="heart-container">
+            <div class="heart" id="heartButton"></div>
+            <div class="profiles">
+                <div class="profile profile1">
+                    <img src="https://image2url.com/r2/bucket3/images/1766918214247-fadbaae9-35a4-4028-b054-bdffaa1f3bd2.jpg" alt="Profile 1">
+                </div>
+                <div class="profile profile2">
+                    <img src="https://image2url.com/r2/bucket3/images/1766920543381-f78eb85f-73b3-41f5-921e-03d2e0c0550e.jpg" alt="Profile 2">
+                </div>
+            </div>
+        </div>
+        <p>Click the heart to reveal our love memories! (Made with love for you)</p>
+        <div id="countdown">Days until our next anniversary: Calculating...</div>
+    </div>
+
+    <div id="main" class="container" style="display: none;">
+        <h1>Our Love Memory Keeping System</h1>
+        <button id="musicToggle">Play/Pause Music</button>
+        
+        <div class="tabs">
+            <button class="tab-button active" data-tab="memories">Memories</button>
+            <button class="tab-button" data-tab="notes">Notes</button>
+            <button class="tab-button" data-tab="videos">Videos</button>
+            <button class="tab-button" data-tab="images">Images</button>
+            <button class="tab-button" data-tab="journey">Our Journey</button>
+            <button class="tab-button" data-tab="letter">Love Letter</button>
+        </div>
+
+        <div id="memories" class="tab-content active">
+            <p>Click the gift box to reveal a surprise memory!</p>
+            <div class="gift-box" id="giftBox">
+                <div class="gift-lid"></div>
+            </div>
+            <div id="surpriseMessage" class="surprise"></div>
+            
+            <form id="customForm" class="custom-form">
+                <input type="text" id="customMessage" placeholder="Enter your custom love message..." required>
+                <button type="submit">Add to Memories</button>
+            </form>
+            
+            <button id="resetButton">Reset Gift</button>
+            
+            <div class="memories-list">
+                <h2>Saved Memories</h2>
+                <ul id="memoryList"></ul>
+            </div>
+
+            <div class="reasons-love">
+                <h2>Reasons I Love You</h2>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">Reason 1</div>
+                        <div class="flip-card-back">Your smile lights up my world!</div>
+                    </div>
+                </div>
+                <div class="flip-card">
+                    <div class="flip-card-inner">
+                        <div class="flip-card-front">Reason 2</div>
+                        <div class="flip-card-back">You make every day an adventure.</div>
+                    </div>
+                </div>
+                <!-- Add more as needed -->
+            </div>
+        </div>
+
+        <div id="notes" class="tab-content">
+            <h2>Notes</h2>
+            <form id="noteForm" class="custom-form">
+                <textarea id="noteText" placeholder="Write your note here..." required></textarea>
+                <button type="submit">Add Note</button>
+            </form>
+            <ul id="noteList"></ul>
+        </div>
+
+        <div id="videos" class="tab-content">
+            <h2>Videos</h2>
+            <p>You can upload local video files (e.g., MP4). Note: Large videos may exceed browser storage limits.</p>
+            <form id="videoForm" class="custom-form">
+                <input type="file" id="videoFile" accept="video/*" required>
+                <button type="submit">Add Video</button>
+            </form>
+            <div id="videoList"></div>
+        </div>
+
+        <div id="images" class="tab-content">
+            <h2>Images</h2>
+            <p>You can upload local image files (e.g., JPG, PNG).</p>
+            <form id="imageForm" class="custom-form">
+                <input type="file" id="imageFile" accept="image/*" required>
+                <button type="submit">Add Image</button>
+            </form>
+            <div id="imageList" class="gallery"></div>
+        </div>
+
+        <div id="journey" class="tab-content">
+            <h2>Our Journey Timeline</h2>
+            <ul class="timeline">
+                <li>
+                    <div class="timeline-content">
+                        <h3>First Date</h3>
+                        <p>Date: January 1, 2024</p>
+                        <p>Our magical first meeting at the coffee shop.</p>
+                    </div>
+                </li>
+                <li>
+                    <div class="timeline-content">
+                        <h3>First Kiss</h3>
+                        <p>Date: February 14, 2024</p>
+                        <p>Under the stars, unforgettable.</p>
+                    </div>
+                </li>
+                <!-- Add more milestones -->
+            </ul>
+        </div>
+
+        <div id="letter" class="tab-content">
+            <h2>My Love Letter to You</h2>
+            <div class="envelope">
+                <div class="envelope-front"></div>
+                <div class="envelope-back">
+                    <p>Dear [Partner's Name],</p>
+                    <p>From the moment I met you, my life changed forever. You are my everything...</p>
+                    <!-- Add full letter here -->
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
